@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { Heading } from './_components/Heading';
 import { Heros } from './_components/Heros';
 import { Footer } from './_components/Footer';

@@ -77,7 +77,7 @@ const Item = ({
 
         if(!id) return;
 
-        const promise = create({title : "untitle",parentDocument: id})
+        const promise = create({title : "Untitled",parentDocument: id})
         .then( (documentId) =>{
             if(!expanded){
                 onExpand?.();
