@@ -87,7 +87,7 @@ const Navigation = () => {
 
     const resetWidth = () => {
         if(sidebarRef.current && navbarRef.current){
-            setIsResettings(false);
+            setIsCollapsed(false);
             setIsResettings(true);
 
 
