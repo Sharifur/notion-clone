@@ -13,15 +13,21 @@ import { toast } from "sonner";
 import { DocumentList } from "./DocumentList";
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import TrashBox from "./TrashBox";
+import { useSettings } from "@/hooks/use-settings";
+import { useSearch } from "@/hooks/user-search";
 
 const Navigation = () => {
     const pathname = usePathname();
     const isMobile = useMediaQuery("(max-width: 768px)")
+    const settings = useSettings();
+    const search = useSearch();
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
     const navbarRef = useRef<ElementRef<"div">>(null);
+
     const [isResettings,setIsResettings] = useState(false);
     const [isCollapsed,setIsCollapsed] = useState(isMobile);
+
 
     const create = useMutation(api.documents.create);
 
@@ -142,12 +148,12 @@ const Navigation = () => {
                     label="Search"
                     icon={Search}
                     isSearch
-                    onClick={() => {}}
+                    onClick={search.onOpen}
                     />
                     <Item
                     label="Settings"
                     icon={Settings}
-                    onClick={() => {}}
+                    onClick={settings.onOpen}
                     />
                     <Item
                         onClick={handleClick}
