@@ -113,7 +113,7 @@ const Item = ({
                 </div>
             )}
             {documentIcon ? (
-                <div>
+                <div className="mr-2">
                     {documentIcon}
                 </div>
             ):(
