@@ -362,4 +362,4 @@ export const removeCoverImage = mutation({
     return document;
 
   }
-})
+});
