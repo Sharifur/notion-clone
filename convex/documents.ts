@@ -86,7 +86,9 @@ export const create = mutation({
             isArchived: false,
             isPublished : false ,
             userId
-        })
+        });
+
+        return document;
     }
 });
 

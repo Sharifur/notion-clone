@@ -71,7 +71,7 @@ const TrashBox = () => {
 
 
     return (
-        <div className="text-sm shadow-md p-2 rounded-sm">
+        <div className="text-sm shadow-md p-2 rounded-sm dark:bg-[#1f1f1f]">
             <div className="flex items-center gap-x-1 p-2">
                 <Search className="h-4 w-4"/>
                 <Input
@@ -81,7 +81,7 @@ const TrashBox = () => {
                     placeholder="Filter by page title...."
                 />    
             </div> 
-            <div className="mt-2 px-1 pb1">
+            <div className="mt-2 px-1 pb1 ">
                 <p className="hidden last:block text-xs text-center text-muted-foreground pb-2">
                     No Documents found
                 </p>
