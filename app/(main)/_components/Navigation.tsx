@@ -3,7 +3,7 @@
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { useRef,ElementRef, useState, useEffect } from "react";
 import {useMediaQuery} from "usehooks-ts";
-import { usePathname,useParams } from "next/navigation";
+import { usePathname,useParams, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import UserItem from "./UserItem";
 import { useMutation} from "convex/react";
@@ -26,7 +26,7 @@ const Navigation = () => {
     const sidebarRef = useRef<ElementRef<"aside">>(null);
     const navbarRef = useRef<ElementRef<"div">>(null);
     const params = useParams();
-
+    const router = useRouter();
     const [isResettings,setIsResettings] = useState(false);
     const [isCollapsed,setIsCollapsed] = useState(isMobile);
 
@@ -118,12 +118,15 @@ const Navigation = () => {
     }
 
     const handleClick = () => {
-        const promise = create({title : "Untitled"});
+        const promise = create({title : "Untitled"})
+        .then((documentId) =>{
+            router.push(`/documents/${documentId}`)
+        })
         toast.promise(promise,{
             loading: "creating a new note",
             success : "New note created",
             error : "Failed to create note"
-        })
+        });
     }
 
     return (

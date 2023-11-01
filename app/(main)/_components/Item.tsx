@@ -54,7 +54,8 @@ const Item = ({
 
         if(!id) return;
 
-        const promise  = archive({id});
+        const promise  = archive({id})
+        .then((documentId) => router.push(`/documents`))
 
         toast.promise(promise, {
             success : "Note Moved to trash!",
@@ -82,7 +83,7 @@ const Item = ({
             if(!expanded){
                 onExpand?.();
             }
-            // router.push(`/documents/${documentId}`);
+            router.push(`/documents/${documentId}`);
         });
 
         toast.promise(promise,{
@@ -113,7 +114,7 @@ const Item = ({
                 </div>
             )}
             {documentIcon ? (
-                <div>
+                <div className="mr-2">
                     {documentIcon}
                 </div>
             ):(
