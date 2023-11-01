@@ -17,7 +17,7 @@ import { useTheme } from "next-themes";
 import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps{
-    onChange : () => void;
+    onChange : (value: string) => void;
     initialContent? : string;
     editable?: boolean
 }
